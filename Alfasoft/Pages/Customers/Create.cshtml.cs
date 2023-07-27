@@ -1,18 +1,17 @@
 using Alfasoft.DTO;
-using Alfasoft.Models;
 using Alfasoft.Services.CustomerService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Alfasoft.Pages.Customers.Create;
+namespace Alfasoft.Pages.Customers;
 
-public class IndexModel : PageModel
+public class CreateModel : PageModel
 {
     private readonly ICustomerService _customerService;
 
     [BindProperty]
-    public CustomerDTO? Customer { get; set; } = new();
-    public IndexModel(ICustomerService customerService)
+    public CustomerDTO Customer { get; set; } = new();
+    public CreateModel(ICustomerService customerService)
     {
         _customerService = customerService;
     }
@@ -32,4 +31,3 @@ public class IndexModel : PageModel
         return RedirectToPage("/Index");
     }
 }
-

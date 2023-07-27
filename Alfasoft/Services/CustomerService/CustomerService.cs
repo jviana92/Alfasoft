@@ -53,19 +53,31 @@ public class CustomerService : ICustomerService
         await _context.SaveChangesAsync();
     }
 
-    public Task UpdateCustomer(CustomerDTO customer)
+    public async Task UpdateCustomer(CustomerDTO customerDto)
     {
-        throw new NotImplementedException();
+        Customer? customer = await _context.Customers.FindAsync(customerDto.Id);
+
+        if (customer == null)
+        {
+            return;
+            //Todo - Shouldn't happen, but throw expection
+        }
+
+        customer.Name = customerDto.Name;
+        customer.Contact = customerDto.Contact;
+        customer.Email = customerDto.Email;
+
+        await _context.SaveChangesAsync();
     }
 
-    public async Task CreateCustomer(CustomerDTO customer)
+    public async Task CreateCustomer(CustomerDTO customerDto)
     {
         var newCustomer = new Customer
         {
-            Id = customer.Id,
-            Name = customer.Name,
-            Contact = customer.Contact,
-            Email = customer.Email
+            Id = customerDto.Id,
+            Name = customerDto.Name,
+            Contact = customerDto.Contact,
+            Email = customerDto.Email
         };
 
         await _context.Customers.AddAsync(newCustomer);

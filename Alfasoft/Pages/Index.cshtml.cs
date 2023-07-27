@@ -1,12 +1,13 @@
 ﻿using Alfasoft.DTO;
 using Alfasoft.Models;
 using Alfasoft.Services.CustomerService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace Alfasoft.Pages;
-
+[AllowAnonymous]
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;

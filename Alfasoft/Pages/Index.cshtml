@@ -18,7 +18,6 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact Number</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,11 +28,12 @@
                     <td>@customer.Name</td>
                     <td>@customer.Email</td>
                     <td>@customer.Contact</td>
+                    <td><a class="btn btn-primary btn-sm" asp-page="/Customers/Edit" asp-route-id="@customer.Id">Edit</a></td>
                     <td>
-                        <!-- Delete button for each entry -->
-                        <form method="post" asp-page-handler="Delete" asp-route-id="@customer.Id">
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
+                            
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@customer.Id">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                     </td>
                 </tr>
             }
