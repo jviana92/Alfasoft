@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alfasoft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230727092001_CreateCustomerTable")]
+    [Migration("20230727100613_CreateCustomerTable")]
     partial class CreateCustomerTable
     {
         /// <inheritdoc />
@@ -21,7 +21,7 @@ namespace Alfasoft.Migrations
                 .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Alfasoft.Models.Customers", b =>
+            modelBuilder.Entity("Alfasoft.Models.Customer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
